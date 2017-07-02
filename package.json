@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/vallejoj/Network-Broadcast-News/issues"
   },
-  "homepage": "https://github.com/vallejoj/Network-Broadcast-News#readme"
+  "homepage": "https://github.com/vallejoj/Network-Broadcast-News#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "socket.io": "^2.0.3"
+  }
 }
