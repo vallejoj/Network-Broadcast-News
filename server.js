@@ -1,5 +1,6 @@
 const net = require('net');
 
+
 var clients= [];
 
 net.createServer(function(socket){
@@ -10,15 +11,19 @@ socket.name = socket.remoteAddress + ":" + socket.remotePort;
 
 clients.push(socket);
 
+
+
+
  broadcast('Get your chart on! ' + "\n");
  socket.write('Enter Username:\n ');
+
 
 socket.on('data', (data) => {
     data = data.slice(0, data.length -1);
     if(socket.name === socket.remoteAddress + ":" + socket.remotePort) {
       socket.name = data;
       broadcast(socket.name + " has joined\n", socket);
-      console.log(socket.name + " has connected")
+      console.log(socket.name + "has connected")
 
     }else {
       broadcast(socket.name + ': ' + data + "\n");
