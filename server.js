@@ -11,25 +11,30 @@ socket.name = socket.remoteAddress + ":" + socket.remotePort;
 
 clients.push(socket);
 
-broadcast(socket.remoteAddress + " has joined\n", socket);
+
 
 
  broadcast('Get your chart on! ' + "\n");
- socket.write('Enter Username: ');
+ socket.write('Enter Username:\n ');
 
 
 socket.on('data', (data) => {
     data = data.slice(0, data.length -1);
     if(socket.name === socket.remoteAddress + ":" + socket.remotePort) {
       socket.name = data;
+      broadcast(socket.name + "has joined\n", socket);
+      console.log(socket.name + "has connected")
+
     }else {
       broadcast(socket.name + ': ' + data + "\n");
+      console.log(socket.name + ': ' + data + "\n")
     }
   });
 
   socket.on('end', function () {
      clients.splice(clients.indexOf(socket), 1);
      broadcast(socket.name + "left the chat.");
+     console.log(socket.name + "left the chat.");
    });
 
    function broadcast(data) {
