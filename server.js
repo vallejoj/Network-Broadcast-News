@@ -11,9 +11,6 @@ socket.name = socket.remoteAddress + ":" + socket.remotePort;
 
 clients.push(socket);
 
-
-
-
  broadcast('Get your chart on! ' + "\n");
  socket.write('Enter Username:\n ');
 
